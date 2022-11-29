@@ -1,6 +1,7 @@
 @import 'color';
 nav{
     justify-content: center;
+
 }
 .header01{
     display: flex;
@@ -8,6 +9,8 @@ nav{
     justify-content: flex-end;
     padding: 8px;
     background: $pri-color-two;
+    position: sticky;
+    top: 0;
 }
 .header01 a{
     text-decoration: none;
@@ -36,7 +39,7 @@ nav{
 }
 .header02 .search-box-container .fa-search{
     padding: 10px 20px;
-    background: $pri-color-two;
+    // background: $pri-color-two;
     color: $pri-color-one;
     text-align: center;
     cursor: pointer;

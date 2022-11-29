@@ -8,6 +8,9 @@ nav {
   justify-content: flex-end;
   padding: 8px;
   background: #f6b848;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .header01 a {
@@ -40,7 +43,6 @@ nav {
 
 .header02 .search-box-container .fa-search {
   padding: 10px 20px;
-  background: #f6b848;
   color: #ffffff;
   text-align: center;
   cursor: pointer;
@@ -123,7 +125,7 @@ footer {
 }
 
 .brand-name {
-  background: rgb(218, 218, 218);
+  background-color: rgb(255, 241, 241);
   color: #000000;
   padding: 30px;
   margin: 10px;
@@ -133,7 +135,7 @@ footer {
 }
 
 .brand-name:hover {
-  transition: 1.5s;
+  transition: 0.5s;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   background: rgb(255, 255, 255);
 }
@@ -149,7 +151,7 @@ footer {
 }
 
 .card-container .card {
-  background: rgb(237, 235, 235);
+  background-color: rgb(255, 241, 241);
   color: #000000;
   padding: 30px;
   margin: 10px;
@@ -190,6 +192,155 @@ footer {
   background: #f6b848;
 }
 
+.next-page {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.next-page ul {
+  display: flex;
+  justify-content: center;
+}
+
+.next-page ul li {
+  background: #f6b848;
+  color: #ffffff;
+  padding: 5px;
+  margin: 2px;
+  padding: 10px;
+  border: 1px solid #000000;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.testbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  padding: 3px;
+}
+
+.form {
+  width: 50%;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px #ccc;
+  margin: 2% 0;
+  border-radius: 5px;
+}
+
+input,
+select,
+textarea {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+input {
+  width: calc(100% - 10px);
+  padding: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 7px 0;
+  background: transparent;
+}
+
+textarea {
+  width: calc(100% - 6px);
+}
+
+.item {
+  position: relative;
+  margin: 10px 0;
+}
+
+.item:hover p,
+.item:hover i {
+  color: #095484;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  outline: #f6b848;
+}
+
+.type-product label {
+  display: block;
+  margin: 5px 0;
+}
+
+.type-item input,
+.type-item span {
+  width: auto;
+  vertical-align: middle;
+}
+
+.type-item input {
+  margin: 0 5px 0 0;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.item i,
+input[type=date]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  font-size: 20px;
+  color: #a9a9a9;
+}
+
+.item i {
+  right: 1%;
+  top: 30px;
+  z-index: 1;
+}
+
+[type=date]::-webkit-calendar-picker-indicator {
+  right: 0;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.btn-block {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #095484;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (min-width: 568px) {
+  .name-item,
+.city-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .name-item input,
+.city-item input {
+    width: calc(50% - 20px);
+  }
+  .city-item select {
+    width: calc(50% - 8px);
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -204,6 +355,6 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  background-color: rgb(245, 245, 245);
+  background: rgb(218, 218, 218);
   text-align: left;
 }
