@@ -1,18 +1,21 @@
 @import 'navbar';
 @import 'color';
-
+@import 'footer';
+@import'index';
 *{
     padding: 0;
     margin: 0;
     text-decoration: none;
-
+    font-family: "Roboto", sans-serif;
 }
 body{
+    display: flex;
+    flex-direction: column;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #6C757D;
+    background-color: rgb(245, 245, 245);
     text-align: left;
 
 }
