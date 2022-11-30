@@ -88,13 +88,20 @@
         <div class="football-shoes">
             <h1>OUR SHOES</h1>
             <div class="card-container">
-                <!-- <div class="card">
+            <!-- <div class="card">
                     <img src="image/football-shoes.png" alt="">
-                   <div class="card-info">
-                        <h3 id="name">phearom</h3>
-                        <h5 id="price">price : 100$</h5>
+                    <div class="card-info">
+                       <h3 id="name">phearom</h3>
+                        <div class="card-button">
+                            <h5>$</h5>
+                            <h5>120</h5>
+                        </div>
                     </div>
-                    <a href="#">Buy Now</a>
+                   <div class="card-price">
+                        <a href="#">Buy Now</a>
+                        <a href="#">See More</a>
+                    </div>
+                    
                 </div> -->
             </div>
         </div>
@@ -104,11 +111,11 @@
             <h1>Create Product</h1>
             <div class="item">
                 <h4>Your Name Product</h4>
-                <input type="text" name="name" placeholder="name product" id='name' />
+                <input type="text" name="name" placeholder="name product" id="title" />
             </div>
             <div class="item">
                 <h4>Cost</h4>
-                <input type="text" name="name" placeholder="price: $" value="$" id="price" />
+                <input type="text" name="name" placeholder="price: $" id="cost" />
             </div>
             <div class="item">
                 <h4>Choose Your Product Brand</h4>
@@ -144,10 +151,16 @@
                 <textarea rows="5" id="desriptioin"></textarea>
             </div>
             <div class="btn-block">
-                <button type="submit" href="" onclick="create()">PUT YOUR PRODUCT</button>
+                <button type="button" href="" onclick="create()">PUT YOUR PRODUCT</button>
             </div>
         </form>
     </div>
+    <div id="edit-view">
+        <div id="product-view">
+          <!-- When clicking on button,  call the right function  -->
+          <div id="product-container"></div>
+        </div>
+      </div>
     <footer id="footer">
         <div class="footer01">
             <a href="#" class="logo"><img src="image/logo.png" alt=""></a>

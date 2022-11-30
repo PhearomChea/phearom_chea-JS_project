@@ -1,0 +1,42 @@
+#questions-view {
+    background-color: var(--main-color-light);
+    padding: 2rem;
+    width: 100vw;
+    height: 100vh;
+  }
+  q 
+  #edit-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+  
+    border: 1px solid var(--main-color-light);
+    background-color: white;
+    border-radius: 15px;
+  }
+  
+  .question-info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .actions {
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .actions img {
+    width: 30%;
+  }
+  

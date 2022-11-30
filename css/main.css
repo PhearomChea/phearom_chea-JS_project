@@ -151,6 +151,7 @@ footer {
 }
 
 .card-container .card {
+  text-align: center;
   background-color: rgb(255, 241, 241);
   color: #000000;
   padding: 30px;
@@ -173,50 +174,47 @@ footer {
 }
 
 .card-info {
-  text-align: start;
+  text-align: center;
 }
 
-.card a {
+.card-info h4 {
+  text-transform: uppercase;
+}
+
+.card-info .card-price h6 {
+  color: #f6b848;
+}
+
+.card-info .card-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .card-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .card-button a {
   background: #000000;
   color: #ffffff;
   padding: 5px;
   font-size: 15px;
   border-radius: 5px;
   font-size: 15px;
+  margin-top: 5px;
 }
 
-.card a:hover {
+.card .card-button a:hover {
   transition: 0.5s;
   background: #f6b848;
 }
 
-.next-page {
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.next-page ul {
-  display: flex;
-  justify-content: center;
-}
-
-.next-page ul li {
-  background: #f6b848;
-  color: #ffffff;
-  padding: 5px;
-  margin: 2px;
-  padding: 10px;
-  border: 1px solid #000000;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-}
-
 .testbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  margin-left: 25%;
   height: inherit;
   padding: 10px;
 }
@@ -349,7 +347,7 @@ button {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 100vh;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 400;

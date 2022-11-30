@@ -31,6 +31,7 @@
     flex-wrap: wrap;
 }
 .card-container .card{
+    text-align: center;
     background-color: rgb(255, 241, 241);
     color: $main-color;
     padding: 30px;
@@ -51,38 +52,35 @@
     height: 100%;
 }
 .card-info{
-    text-align: start;
+    text-align: center;
 }
-.card a {
+.card-info h4{
+    // color: $pri-color-two;
+    text-transform: uppercase;
+}
+.card-info .card-price h6{
+    color: $pri-color-two;
+}
+.card-info .card-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card .card-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card .card-button a {
     background: $main-color;
     color: $pri-color-one;
     padding: 5px;
     font-size: 15px;
     border-radius: 5px;
     font-size: 15px;
-
+    margin-top: 5px;
 }
-.card a:hover{
+.card .card-button a:hover{
     transition: 0.5s;
     background: $pri-color-two;
-}
-.next-page {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-}
-.next-page ul{
-    display: flex;
-    justify-content: center;
-}
-.next-page ul li{
-    background: $pri-color-two;
-    color: $pri-color-one;
-    padding: 5px;
-    margin: 2px;
-    padding: 10px;
-    border: 1px solid $main-color;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
 }
