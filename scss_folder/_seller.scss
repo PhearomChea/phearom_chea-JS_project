@@ -1,9 +1,11 @@
 @import'color';
 .testbox {
     width: 100%;
-    margin-left: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: inherit;
-    padding: 10px;
+
 }
 
 .form {

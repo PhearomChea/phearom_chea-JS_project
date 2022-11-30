@@ -15,7 +15,7 @@
 <body>
     <nav>
         <div class="header01">
-            <a href="#" onclick="showform()">Sell Product</a>
+            <a href="#" onclick="seller_product()">Sell Product</a>
             <p>|</p>
             <a href="index.html">Costumer</a>
         </div>
@@ -88,7 +88,7 @@
         <div class="football-shoes">
             <h1>OUR SHOES</h1>
             <div class="card-container">
-            <!-- <div class="card">
+                <!-- <div class="card">
                     <img src="image/football-shoes.png" alt="">
                     <div class="card-info">
                        <h3 id="name">phearom</h3>
@@ -106,8 +106,8 @@
             </div>
         </div>
     </div>
-    <div class="testbox" style="display: none;">
-        <form action="/" class="form">
+    <div class="testbox">
+        <form action="" class="form" style="display: none;">
             <h1>Create Product</h1>
             <div class="item">
                 <h4>Your Name Product</h4>
@@ -155,12 +155,28 @@
             </div>
         </form>
     </div>
-    <div id="edit-view">
-        <div id="product-view">
-          <!-- When clicking on button,  call the right function  -->
-          <div id="product-container"></div>
+    <div id="edit-view" style="display: none;">
+        <span onclick="show_form()"><a href="#">ADD PRODUCT</a></span>
+        <div id="product-view" >
+            <!-- When clicking on button,  call the right function  -->
+        
+            <div id="product-container">
+                <!-- <div id="main">
+                    <img src="image/football-shoes.png"></img>
+                </div>
+                <div id="textbois">
+                    <h3>Nick Varper 14 00.4</h3>
+                    <h4>$ 129</h4>
+                    <h6>11/20/2022</h6>
+                    <p>Hello everyone this is my product that have qurerity </p>
+                    <div id="hotlinks">
+                        <a href="#"><img id="codepenio" src="image/edit.png" target="_blank" width="40px"></img></a>
+                        <a href="#"><img id="codepenio" src="image/trash.png" target="_blank" width="40px"></img></a>
+                    </div>
+                </div> -->
+            </div>
         </div>
-      </div>
+    </div>
     <footer id="footer">
         <div class="footer01">
             <a href="#" class="logo"><img src="image/logo.png" alt=""></a>

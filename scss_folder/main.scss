@@ -3,6 +3,7 @@
 @import 'footer';
 @import'index';
 @import'seller';
+@import'allProduct';
 *{
     padding: 0;
     margin: 0;
@@ -12,11 +13,11 @@
 body{
     display: flex;
     flex-direction: column;
-    // justify-content: space-around;
+    // justify-content:center;
     min-height: 100vh;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 400px;
     line-height: 1.5;
     background: rgb(218, 218, 218);
     text-align: left;

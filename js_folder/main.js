@@ -1,9 +1,12 @@
 const dom_card = document.querySelector(".football-shoes");
 const home_page = document.querySelector('.container')
-const form_page = document.querySelector('.testbox')
+const form_page = document.querySelector('.form')
+const all_products = document.querySelector('#edit-view')
+const dom_list = document.querySelector('#product-view');
 //get item from form input -------------------------------------------------------------------------------
-let products = []
+var products_all = []
 function create(){
+    // console.log('hello')
     let new_product = {}
     new_product.name = document.querySelector('#title').value;
     new_product.price = document.querySelector('#cost').value;
@@ -11,8 +14,7 @@ function create(){
     new_product.date = document.querySelector('#date').value;
     new_product.img = document.querySelector('#img').value;
     new_product.desriptioin = document.querySelector('#desriptioin').value;
-    console.log(new_product)
-    onCreateProduct()
+    // console.log(new_product)
     if(
         new_product.name !== "" &&
         new_product.price !== "" &&
@@ -21,15 +23,23 @@ function create(){
         new_product.img !== "" &&
         new_product.desriptioin !== ""
     ){
-        products.push(new_product)
+        products_all.unshift(new_product)
         saveProduct()
+        console.log('HI')
     }
-    console.log(new_product)
-   
+    cardProduct()
+    sellList()
+    seller_product()
+    // console.log(new_product)
 }
 //hide home page and show form------------------------------------------------------------------------------------------------
-function showform(){
+function seller_product(){
     hide(home_page);
+    show(all_products);
+}
+function show_form(){
+    hide(home_page);
+    hide(all_products);
     show(form_page);
 }
 //hide form page and show home------------------------------------------------------------------------------------------------
@@ -47,13 +57,15 @@ function hide(element) {
 }
 //saveProduct to localStorage------------------------------------------------------------------------------------------------
 function saveProduct(){
-    localStorage.setItem('products', JSON.stringify(products));
+    localStorage.setItem('products', JSON.stringify(products_all));
+    console.log('save')
 }
 function loadProduct(){
     let pro = JSON.parse(localStorage.getItem('products'));
     if (pro !== null){
         products = pro
     }
+    console.log(products)
 }
 //create products-----------------------------------------------------------------------------------------------------
 function cardProduct(){
@@ -112,19 +124,74 @@ function cardProduct(){
         link1.textContent = 'See More'
         card_button.appendChild(link1);
     }
-    showhome()
+    // showhome()
 }
-const dom_list = document.createElement('#product-view');
-const dom_man_list = document.createElement('#product-container');
+// const dom_list = document.createElement('#product-view');
+// const dom_man_list = document.createElement('#product-container');
 function sellList() {
     loadProduct()
     //remove comtainer
-    let container = document.querySelector('.card-container');
-    container.remove();
-    container = document.createElement('div');
-    container.className = 'card-container';
-}
 
+    let container_sell = document.querySelector('#product-container');
+    container_sell.remove();
+    container_sell = document.createElement('div');
+    container_sell.id = 'product-container';
+    dom_list.appendChild(container_sell);
+
+
+    for(let index = 0; index < products.length; index++){
+        let product = products[index];
+
+        
+        let main = document.createElement('div');
+        main.id = "main";
+        container_sell.appendChild(main);
+        
+        let main_img = document.createElement('img');
+        main_img.src = '../image/football-shoes.png';
+        main.appendChild(main_img);
+
+        let main_info = document.createElement('div');
+        main_info.className = 'textbois';
+        container_sell.appendChild(main_info);
+    
+        let main_name = document.createElement('h3');
+        // main_name.id = 'name';
+        main_name.textContent = product.name;
+        main_info.appendChild(main_name);
+
+        let main_price = document.createElement('h4');
+        main_price.textContent = "Price : "+"$"+product.price;
+        main_info.appendChild(main_price);
+
+        let main_date = document.createElement('h6');
+        // price.id = 'price';
+        main_date.textContent = "Date :" + product.date;
+        main_info.appendChild(main_date);
+
+        let main_button = document.createElement('div');
+        main_button.id = 'hotlinks';
+        main_info.appendChild(main_button);
+
+        let main_link = document.createElement('a');
+        main_link.id = "codepenio"
+        main_button.appendChild(main_link);
+        
+        let img = document.createElement('img');
+        img.src = '../image/edit.png';
+        main_link.appendChild(img)
+
+        let main_links = document.createElement('a');
+        main_links.id = "codepenio"
+        main_button.appendChild(main_links);
+
+        let imgs = document.createElement('img');
+        imgs.src = '../image/trash.png';
+        main_links.appendChild(imgs)
+    }
+
+}
+// sellList()
 cardProduct()
 //display all products------------------------------------------------------------------------------------------------
 
