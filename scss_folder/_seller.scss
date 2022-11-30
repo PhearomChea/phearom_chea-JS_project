@@ -99,10 +99,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .btn-block {
     margin-top: 20px;
     text-align: center;
+    display: flex;
+    // flex-direction: column;
+    justify-content: space-between;
 }
 
 button {
-    width: 50%;
+    width: 40%;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -111,7 +114,12 @@ button {
     color: #fff;
     cursor: pointer;
 }
-
+#cencle{
+    background-color: $pri-color-two;
+}
+#create{
+    background-color: $main-color;
+}
 @media (min-width: 568px) {
     .name-item,
     .city-item {

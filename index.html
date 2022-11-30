@@ -151,29 +151,27 @@
                 <textarea rows="5" id="desriptioin"></textarea>
             </div>
             <div class="btn-block">
-                <button type="button" href="" onclick="create()">PUT YOUR PRODUCT</button>
+                <button type="button" href="" onclick="cancel()" id="cencle">CENCEL</button>
+                <button type="button" href="" onclick="create()" id="create01">PUT YOUR PRODUCT</button>
             </div>
         </form>
     </div>
     <div id="edit-view" style="display: none;">
-        <span onclick="show_form()"><a href="#">ADD PRODUCT</a></span>
+        <a href="#" id="add-name" onclick="show_form()">ADD PRODUCT</a>
         <div id="product-view" >
             <!-- When clicking on button,  call the right function  -->
-        
-            <div id="product-container">
-                <!-- <div id="main">
-                    <img src="image/football-shoes.png"></img>
+            <div id="card-page-seller">
+                <img src="image/football-shoes.png" alt="">
+                <div id="cart-info">
+                    <h3 id="name-info">Phearom Chea</h3>
+                    <h5 id="price-info">$ 120</h3>
+                    <h5 id="date-info">20/10/2021</h5>
+                    <p>Hello this is my product that have good qurity</p>
                 </div>
-                <div id="textbois">
-                    <h3>Nick Varper 14 00.4</h3>
-                    <h4>$ 129</h4>
-                    <h6>11/20/2022</h6>
-                    <p>Hello everyone this is my product that have qurerity </p>
-                    <div id="hotlinks">
-                        <a href="#"><img id="codepenio" src="image/edit.png" target="_blank" width="40px"></img></a>
-                        <a href="#"><img id="codepenio" src="image/trash.png" target="_blank" width="40px"></img></a>
-                    </div>
-                </div> -->
+                <div id="link-info">
+                    <a href="#"><img src="image/edit.png" alt="" width="40px"></a>
+                    <a href="#"><img src="image/trash.png" alt="" width="40px"></a>
+                </div>
             </div>
         </div>
     </div>
