@@ -15,7 +15,7 @@
 <body>
     <nav>
         <div class="header01">
-            <a href="#" onclick="seller_product()">Sell Product</a>
+            <a href="#" onclick="showSellerProduct()">Sell Product</a>
             <p>|</p>
             <a href="index.html">Costumer</a>
         </div>
@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-    <div class="testbox">
+    <div class="testbox" >
         <form action="" class="form" style="display: none;">
             <h1>Create Product</h1>
             <div class="item">
@@ -129,22 +129,21 @@
             </div>
             <div class="item type-product">
                 <h4>Type of your product</h4>
-                <div class="type-item" id="type">
-                    <label><input type="checkbox" name="name"> <span>Football Shoes</span></label>
-                    <label><input type="checkbox" name="name"> <span>Running Shoes</span></label>
-                    <label><input type="checkbox" name="name"> <span>Tennis Shoes</span></label>
-                    <label><input type="checkbox" name="name"> <span>Basketball Shoes</span></label>
-                </div>
+                <select id="type" class="type-item">
+                    <option value="" selected disabled>Choose Type</option>
+                    <option value="Football Shoes">Football Shoes</option>
+                    <option value="Running Shoes">Running Shoes</option>
+                    <option value="Tennis Shoes">Tennis Shoes</option>
+                    <option value="Basketball Shoes">Basketball Shoes</option>
+                </select>
             </div>
             <div class="item">
                 <h4>Date your put product</h4>
                 <input type="date" name="name" required id="date" />
-                <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="item">
                 <h4>Put your product image</h4>
-                <input type="file" name="name" required placeholder="50X50" id="img" />
-                <i class="fas fa-calendar-alt"></i>
+                <input type="text" name="name" required id="img" placeholder="input your URL img"/>
             </div>
             <div class="item">
                 <h4>Description</h4>
@@ -152,15 +151,15 @@
             </div>
             <div class="btn-block">
                 <button type="button" href="" onclick="cancel()" id="cencle">CENCEL</button>
-                <button type="button" href="" onclick="create()" id="create01">PUT YOUR PRODUCT</button>
+                <button type="button" href="" onclick="onCreate()" id="create01">PUT YOUR PRODUCT</button>
             </div>
         </form>
     </div>
     <div id="edit-view" style="display: none;">
-        <a href="#" id="add-name" onclick="show_form()">ADD PRODUCT</a>
+        <a href="#" id="add-name" onclick="showForm()">ADD PRODUCT</a>
         <div id="product-view" >
             <!-- When clicking on button,  call the right function  -->
-            <div id="card-page-seller">
+            <!-- <div id="card-page-seller">
                 <img src="image/football-shoes.png" alt="">
                 <div id="cart-info">
                     <h3 id="name-info">Phearom Chea</h3>
@@ -172,7 +171,7 @@
                     <a href="#"><img src="image/edit.png" alt="" width="40px"></a>
                     <a href="#"><img src="image/trash.png" alt="" width="40px"></a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <footer id="footer">

@@ -2,78 +2,118 @@ const dom_card = document.querySelector(".football-shoes");
 const home_page = document.querySelector('.container')
 const form_page = document.querySelector('.form')
 const all_products = document.querySelector('#edit-view')
-const dom_list = document.querySelector('#product-view');
-//get item from form input -------------------------------------------------------------------------------
-let products_all = []
-function create(){
-    document.querySelector('#create01').textContent = "PUT YOUR PRODUCT"
-    let new_product = {}
-    new_product.name = document.querySelector('#title').value;
-    new_product.price = document.querySelector('#cost').value;
-    new_product.brand = document.querySelector('#brand').value;
-    new_product.date = document.querySelector('#date').value;
-    new_product.img = document.querySelector('#img').value;
-    new_product.desriptioin = document.querySelector('#desriptioin').value;
+const dom_brand = document.querySelector('.container');
+const createButton = document.querySelector("#create01")
+//
+let formInput = document.querySelector(".form")
+let sellerProduct = document.querySelector("#edit-view")
+//
+let productToEdit = null;
 
-    if(
-        new_product.name !== "" &&
-        new_product.price !== "" &&
-        new_product.brand !== "" &&
-        new_product.date !== "" &&
-        new_product.img !== "" &&
-        new_product.desriptioin !== ""
-    ){
-        products_all.unshift(new_product)
-        saveProduct()
-        console.log('HI')
-    }
-    cardProduct()
-    sellList()
-    seller_product()
-}
-function cancel() {
-    // TODO : when clicking on ADD button, hide the dialog
-    seller_product()
-  }
-//hide home page and hide form show seller product------------------------------------------------------------------------------------------------
-function seller_product(){
-    hide(home_page);
-    hide(form_page);
-    show(all_products);
-}
-//hide home page and show form------------------------------------------------------------------------------------------------
-function show_form(){
-    hide(home_page);
-    hide(all_products);
-    show(form_page);
-}
-//hide form page and show home------------------------------------------------------------------------------------------------
-function showhome(){
-    hide(form_page);
-    show(home_page);
-}
 // HIDE / SHOW ---------------------------------------------------------
 function hide(element) {
     element.style.display = "none";
-}
+  }
   
   function show(element) {
     element.style.display = "block";
 }
-//saveProduct to localStorage------------------------------------------------------------------------------------------------
-function saveProduct(){
-    localStorage.setItem('products', JSON.stringify(products_all));
-    console.log('save')
+//show form --------------------------------------------------------
+function showForm(){
+    formInput.style.display = "block";
+    sellerProduct.style.display = "none"
 }
-//get value from localStorage----------------------------------------------------------------
-function loadProduct(){
-    let pro = JSON.parse(localStorage.getItem('products'));
-    if (pro !== null){
-        products_all = pro
+//show seller --------------------------------------------------------
+function showSellerProduct(){
+    sellerProduct.style.display = "block";
+    formInput.style.display = "none";
+    dom_brand.style.display = "none";
+}
+//  LOCAL STORAGE ---------------------------------------------------------
+function saveProduct() {
+    localStorage.setItem("products", JSON.stringify(allProducts));
+}
+function loadProduct() {
+    let productStorage = JSON.parse(localStorage.getItem("products"));
+    if (productStorage !== null) {
+        allProducts = productStorage;
     }
 }
-//create products-----------------------------------------------------------------------------------------------------
-function cardProduct(){
+//  EDIT ---------------------------------------------------------
+function renderProducts() {
+    console.log('hello')
+
+    let dom_list = document.querySelector('#product-view');
+    dom_list.remove();
+
+    dom_list = document.createElement('div');
+    dom_list.id = "product-view"
+
+    all_products.appendChild(dom_list)
+    for (let index = 0; index < allProducts.length; index++) {
+        let product = allProducts[index];
+        
+        let container_sell = document.createElement('div');
+        container_sell.id = 'card-page-seller';
+        container_sell.dataset.index = index;
+        dom_list.appendChild(container_sell);
+        
+
+        let main_img = document.createElement('img');
+        main_img.style.width = '20%'
+        main_img.src = '../image/football-shoes.png';
+        container_sell.appendChild(main_img);
+
+        let main_info = document.createElement('div');
+        main_info.id = 'cart-info';
+        container_sell.appendChild(main_info);
+
+        let main_name = document.createElement('h2');
+        main_name.id = 'name-info';
+        main_name.textContent = product.name;
+        main_info.appendChild(main_name);
+
+        let main_price = document.createElement('h3');
+        main_price.id = 'price-info';
+        main_price.textContent = "Price : " + "$" + product.price;
+        main_info.appendChild(main_price);
+
+        let main_date = document.createElement('h5');
+        main_date.id = 'date-info';
+        main_date.textContent = "Date :" + product.date;
+        main_info.appendChild(main_date);
+
+        let para = document.createElement('p');
+        para.textContent = product.desriptioin
+        main_info.appendChild(para);
+
+        let main_button = document.createElement('div');
+        main_button.id = 'link-info';
+        container_sell.appendChild(main_button);
+
+        let main_link = document.createElement('a');
+        // main_link.id = "codepenio"
+        main_button.appendChild(main_link);
+        
+        let img = document.createElement('img');
+        img.src = '../image/edit.png';
+        main_link.appendChild(img)
+        img.addEventListener("click", editProduct)
+
+        let main_links = document.createElement('a');
+        // main_link.id = "codepenio"
+        main_button.appendChild(main_links);
+        
+        let imgs = document.createElement('img');
+        imgs.src = '../image/trash.png';
+        main_links.appendChild(imgs)
+        
+        // container_sells.appendChild(container_sell)
+
+    }
+}
+function renderProductsCard() {
+    console.log('hi')
 
     let container = document.querySelector('.card-container');
     container.remove();
@@ -81,8 +121,8 @@ function cardProduct(){
     container.className = 'card-container';
     dom_card.appendChild(container);
 
-    for(let index = 0; index < products_all.length; index++){
-        let product = products_all[index];
+    for(let index = 0; index < allProducts.length; index++){
+        let product = allProducts[index];
         
         let card = document.createElement('div');
         card.className = 'card';
@@ -132,98 +172,56 @@ function cardProduct(){
 
 }
 
-function sellList() {
-    let container_sell = document.querySelector('#card-page-seller');
-    container_sell.remove();
-
-    for(let index = 0; index < products_all.length; index++){
-        let product = products_all[index];
-        
-        container_sell = document.createElement('div');
-        container_sell.id = 'card-page-seller';
-        dom_list.appendChild(container_sell);
-        
-        let main_img = document.createElement('img');
-        main_img.style.width = '20%'
-        main_img.src = '../image/football-shoes.png';
-        container_sell.appendChild(main_img);
-
-        let main_info = document.createElement('div');
-        main_info.id = 'cart-info';
-        container_sell.appendChild(main_info);
+//CREATE NEW PRODUCT
+let allProducts = []
+function onCreate() {
+    showSellerProduct()
     
-        let main_name = document.createElement('h2');
-        main_name.id = 'name-info';
-        main_name.textContent = product.name;
-        main_info.appendChild(main_name);
-
-        let main_price = document.createElement('h3');
-        main_price.id = 'price-info';
-        main_price.textContent = "Price : "+"$"+product.price;
-        main_info.appendChild(main_price);
-
-        let main_date = document.createElement('h5');
-        main_date.id = 'date-info';
-        main_date.textContent = "Date :" + product.date;
-        main_info.appendChild(main_date);
-
-        let para = document.createElement('p');
-        para.textContent = product.desriptioin
-        main_info.appendChild(para);
-
-        let main_button = document.createElement('div');
-        main_button.id = 'link-info';
-        container_sell.appendChild(main_button);
-
-        let main_link = document.createElement('a');
-        // main_link.id = "codepenio"
-        main_button.appendChild(main_link);
-        
-        let img = document.createElement('img');
-        img.src = '../image/edit.png';
-        main_link.appendChild(img)
-
-        let main_links = document.createElement('a');
-        // main_links.id = "codepenio"
-        main_button.appendChild(main_links);
-        img.addEventListener('click', editProduct)
-
-        let imgs = document.createElement('img');
-        imgs.src = '../image/trash.png';
-        imgs.style.cursor = 'pointer';
-        main_links.appendChild(imgs)
-        imgs.addEventListener('click',removeProduct)
-
+    if (productToEdit !== null) {
+        let editProduct = allProducts[productToEdit]
+        editProduct.name = document.querySelector('#title').value;
+        editProduct.price = document.querySelector('#cost').value;
+        editProduct.brand = document.querySelector('#brand').value;
+        editProduct.date = document.querySelector('#date').value;
+        editProduct.img = document.querySelector('#img').value;
+        editProduct.desriptioin = document.querySelector('#desriptioin').value;
+    } else {
+      let newProduct = {};
+      newProduct.name = document.querySelector('#title').value;
+      newProduct.price = document.querySelector('#cost').value;
+      newProduct.brand = document.querySelector('#brand').value;
+      newProduct.date = document.querySelector('#date').value;
+      newProduct.img = document.querySelector('#img').value;
+      newProduct.desriptioin = document.querySelector('#desriptioin').value;
+      allProducts.unshift(newProduct);
     }
-
-}
-
-function editProduct(event) {
-    let index = event.target.parentElement.parentElement.dataset.index
-    show_form()
-    let editProduct = products_all[index]
-    document.querySelector('#create01').textContent = "EDIT PRODUCT"
-    document.querySelector('#title').value = editProduct.name;
-    document.querySelector('#cost').value = editProduct.price;
-    document.querySelector('#brand').value= editProduct.brand;
-    document.querySelector('#date').value= editProduct.date;
-    document.querySelector('#img').value= editProduct.img;
-    document.querySelector('#desriptioin').value = editProduct.desriptioin;
-    products_all.splice(index,1)
-    // saveProduct()
-}
-
-function removeProduct(event) {
-    let index = event.target.parentElement.parentElement.dataset.index
-    products_all.splice(index,1)
-    saveProduct()
-    // sellList()
-    // cardProduct()
-    // create()
-}
-loadProduct()
-cardProduct()
-sellList()
-//display all products------------------------------------------------------------------------------------------------
-
   
+    // 2- Save question
+    saveProduct();
+  
+    // 3 - Update the view
+    renderProducts();
+    renderProductsCard();
+}
+function editProduct(event) {
+    //  Get the question index
+    productToEdit = event.target.parentElement.parentElement.parentElement.dataset.index;
+    console.log(productToEdit);
+    // update the dialog with question informatin
+    let product = allProducts[productToEdit];
+    console.log(allProducts[productToEdit]);
+    document.querySelector('#title').value = product.name;
+    document.querySelector('#cost').value = product.cost;
+    document.querySelector('#brand').value = product.brand;
+    document.querySelector('#date').value = product.date ;
+    document.querySelector('#img').value = product.img;
+    document.querySelector('#desriptioin').value = product.desriptioin;
+  
+    // Show the dialog
+    createButton.textContent = "EDIT YOUR PRODUCT";
+    showForm()
+  }  
+
+loadProduct()
+renderProducts()
+renderProductsCard();
