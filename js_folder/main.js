@@ -107,6 +107,7 @@ function renderProducts() {
         let imgs = document.createElement('img');
         imgs.src = '../image/trash.png';
         main_links.appendChild(imgs)
+        imgs.addEventListener("click", removeProduct)
         
         // container_sells.appendChild(container_sell)
 
@@ -193,7 +194,14 @@ function onCreate() {
       newProduct.date = document.querySelector('#date').value;
       newProduct.img = document.querySelector('#img').value;
       newProduct.desriptioin = document.querySelector('#desriptioin').value;
-      allProducts.unshift(newProduct);
+      if (newProduct.name !== ""
+       && newProduct.price !== ""
+        && newProduct.brand !== ""
+         && newProduct.date !== ""
+          && newProduct.img !== ""
+           && newProduct.desriptioin){
+        allProducts.unshift(newProduct);
+      }
     }
   
     // 2- Save question
@@ -220,8 +228,22 @@ function editProduct(event) {
     // Show the dialog
     createButton.textContent = "EDIT YOUR PRODUCT";
     showForm()
-  }  
+}  
 
+function removeProduct(event) {
+    //  Get index
+    let index = event.target.parentElement.parentElement.parentElement.dataset.index;
+  
+    // Remove question
+    allProducts.splice(index, 1);
+  
+    // Save to local storage
+    saveProduct();
+  
+    // Update the view
+    renderProducts();
+    renderProductsCard();
+  }
 loadProduct()
 renderProducts()
 renderProductsCard();

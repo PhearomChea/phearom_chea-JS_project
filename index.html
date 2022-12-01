@@ -111,15 +111,15 @@
             <h1>Create Product</h1>
             <div class="item">
                 <h4>Your Name Product</h4>
-                <input type="text" name="name" placeholder="name product" id="title" />
+                <input type="text" name="name" placeholder="name product" id="title" required/>
             </div>
             <div class="item">
                 <h4>Cost</h4>
-                <input type="text" name="name" placeholder="price: $" id="cost" />
+                <input type="number" name="name" placeholder="price: $" id="cost" required/>
             </div>
             <div class="item">
                 <h4>Choose Your Product Brand</h4>
-                <select id="brand">
+                <select id="brand" required>
                     <option value="" selected disabled>Choose Brand</option>
                     <option value="NIKE">Nike</option>
                     <option value="PUMA">Puma</option>
@@ -129,7 +129,7 @@
             </div>
             <div class="item type-product">
                 <h4>Type of your product</h4>
-                <select id="type" class="type-item">
+                <select id="type" class="type-item" required>
                     <option value="" selected disabled>Choose Type</option>
                     <option value="Football Shoes">Football Shoes</option>
                     <option value="Running Shoes">Running Shoes</option>
@@ -139,7 +139,7 @@
             </div>
             <div class="item">
                 <h4>Date your put product</h4>
-                <input type="date" name="name" required id="date" />
+                <input type="date" name="name" required id="date"/>
             </div>
             <div class="item">
                 <h4>Put your product image</h4>
@@ -147,7 +147,7 @@
             </div>
             <div class="item">
                 <h4>Description</h4>
-                <textarea rows="5" id="desriptioin"></textarea>
+                <textarea rows="5" id="desriptioin" required></textarea>
             </div>
             <div class="btn-block">
                 <button type="button" href="" onclick="cancel()" id="cencle">CENCEL</button>
