@@ -61,7 +61,7 @@ function renderProducts() {
 
         let main_img = document.createElement('img');
         main_img.style.width = '20%'
-        main_img.src = '../image/football-shoes.png';
+        main_img.src = product.img;
         container_sell.appendChild(main_img);
 
         let main_info = document.createElement('div');
@@ -130,14 +130,15 @@ function renderProductsCard() {
         container.appendChild(card);
         
         let card_img = document.createElement('img');
-        card_img.src = '../image/football-shoes.png';
+        card_img.style.width = "200px"
+        card_img.src = product.img;
         card.appendChild(card_img);
 
         let card_info = document.createElement('div');
         card_info.className = 'card-info';
         card.appendChild(card_info);
     
-        let name = document.createElement('h3');
+        let name = document.createElement('h4');
         name.id = 'name';
         name.textContent = product.name;
         card_info.appendChild(name);
