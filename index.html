@@ -22,7 +22,7 @@
         <div class="header02">
             <a href="index.html" class="logo"><img src="image/logo.png" alt=""></a>
             <form action="" class="search-box-container">
-                <input type="search" id="search-box" placeholder="Search here...">
+                <input type="search" id="search-box" onkeyup="searchProduct()" placeholder="Search here...">
                 <label for="search-box" class="fa fa-search"></label>
             </form>
             <div class="user">
@@ -147,11 +147,12 @@
             </div>
             <div class="item">
                 <h4>Description</h4>
-                <textarea rows="5" id="desriptioin" required></textarea>
+                <!-- <textarea rows="5" id="desriptioin" required></textarea> -->
+                <input type="text" placeholder="Color" id="desriptioin" required>
             </div>
             <div class="btn-block">
-                <button type="button" href="" onclick="cancel()" id="cencle">CENCEL</button>
-                <button type="button" href="" onclick="onCreate()" id="create01">PUT YOUR PRODUCT</button>
+                <button type="submit" href="" onclick="onCancel()" id="cencle">CENCEL</button>
+                <button type="submit" href="" onclick="onCreate()" id="create01">PUT YOUR PRODUCT</button>
             </div>
         </form>
     </div>
@@ -174,6 +175,7 @@
             </div> -->
         </div>
     </div>
+    
     <footer id="footer">
         <div class="footer01">
             <a href="#" class="logo"><img src="image/logo.png" alt=""></a>
@@ -182,16 +184,20 @@
             <div class="more-info">
                 <h2>MY ACCOUNT</h2>
                 <div class="footer-bar">
-                    <a href="#">Home</a>
-                    <a href="#">Football Shoes</a>
-                    <a href="#">Running Shoes</a>
-                    <a href="#">Tennis Shoes</a>
-                    <a href="#">Basketball Shoes</a>
+                    <a href="#">HOME</a>
+                    <a href="#">FOOTBALL SHOES</a>
+                    <a href="#">RUNNING SHOES</a>
+                    <a href="#">TENNIS SHOES</a>
+                    <a href="#">BASKETBALL SHOES</a>
                 </div>
             </div>
             <div class="contact">
                 <h2>CONTACT</h2>
-                <a href="#">Emai</a>
+                <a href="#" id="foot-name">+ Email</a>
+                <a href="#">phearom.chea@student.passerellesnumeriques.org</a>
+                <a href="#" id="foot-name">+ Phone number</a>
+                <a href="#">0962 646 651</a>
+                <a href="#">0962 646 651</a>
             </div>
         </div>
     </footer>

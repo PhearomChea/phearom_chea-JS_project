@@ -2,6 +2,7 @@
 footer{
     background: $main-color;
     width: 100%;
+    color: $pri-color-one;
 }
 .footer01{
     display: flex;
@@ -18,4 +19,36 @@ footer{
 .footer02 .footer-bar{
     display: flex;
     flex-direction: column;
+}
+.footer-bar{
+    margin-bottom: 15px;
+}
+.footer-bar a{
+    color: $pri-color-one;
+    font-size: 20px;
+    margin: 10px;
+    border-bottom: 1px solid $pri-color-one;  
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.contact a{
+    color: $pri-color-one;
+    font-size: 20px;
+    margin: 10px;
+    border-bottom: 1px solid $pri-color-one; 
+}
+.footer-bar a:hover{
+    transition: 1s;
+    font-size: 20px;
+    border-bottom: 1px solid $pri-color-two; 
+    color: $pri-color-two;  
+}
+.contact #foot-name{
+    // font-size: 30px;
+    color: $sec-color-two;
+    font-weight: bold;
 }

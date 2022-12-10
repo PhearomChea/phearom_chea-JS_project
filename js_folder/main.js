@@ -168,7 +168,7 @@ function renderProductsCard() {
 
         let link1 = document.createElement('a');
         link1.style.cursor = 'pointer'
-        link1.textContent = 'See More'
+        link1.textContent = 'ADD TO CART'
         card_button.appendChild(link1);
     }
 
@@ -201,8 +201,10 @@ function onCreate() {
          && newProduct.date !== ""
           && newProduct.img !== ""
            && newProduct.desriptioin){
-        allProducts.unshift(newProduct);
-      }
+        allProducts.unshift(newProduct);}
+    //   }else{
+    //     alert("ho")
+    //   }
     }
   
     // 2- Save question
@@ -244,7 +246,25 @@ function removeProduct(event) {
     // Update the view
     renderProducts();
     renderProductsCard();
-  }
+}
+function searchProduct(){
+    let searchInput = document.querySelector("#search-box");
+    let seachInputUpper = searchInput.value.toUpperCase();
+    let Prosuct = document.querySelector(".card-container")
+    let cardProduct = document.querySelectorAll(".card")
+    for (index = 0 ; cardProduct.length; index++){
+        let name = cardProduct[index].querySelector("#name");
+        let nameValue = name.textContent || name.innerText;
+        if (nameValue.toUpperCase().indexOf(seachInputUpper) > -1){
+            cardProduct[index].style.display = "block";
+        }else {
+            cardProduct[index].style.display = "none";
+        }
+    }
+}
+function onCancel(event){
+    showSellerProduct()
+}
 loadProduct()
 renderProducts()
 renderProductsCard();

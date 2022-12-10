@@ -94,6 +94,7 @@ nav {
 footer {
   background: #000000;
   width: 100%;
+  color: #ffffff;
 }
 
 .footer01 {
@@ -113,6 +114,38 @@ footer {
 .footer02 .footer-bar {
   display: flex;
   flex-direction: column;
+}
+
+.footer-bar {
+  margin-bottom: 15px;
+}
+
+.footer-bar a {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 10px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.contact a {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 10px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.footer-bar a:hover {
+  transition: 1s;
+  font-size: 20px;
+  border-bottom: 1px solid #f6b848;
+  color: #f6b848;
 }
 
 .brand {
@@ -165,7 +198,7 @@ footer {
 }
 
 .card-container .card:hover {
-  background-color: rgba(255, 211, 36, 0.326);
+  background-color: rgba(255, 211, 36, 0.756);
   color: #ffffff;
   transition: 0.5s;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -192,6 +225,10 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#name-info {
+  font-style: "";
 }
 
 .card .card-button {
