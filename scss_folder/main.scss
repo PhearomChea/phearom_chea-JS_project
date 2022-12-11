@@ -3,6 +3,7 @@
 @import 'footer';
 @import'index';
 @import'seller';
+@import'cartCard';
 // @import'allProduct';
 // @import'slideshow';
 *{
@@ -14,7 +15,7 @@
 body{
     display: flex;
     flex-direction: column;
-    // justify-content:center;
+    justify-content:center;
     min-height: 100vh;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;

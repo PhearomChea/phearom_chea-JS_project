@@ -1,0 +1,75 @@
+.cart {
+    margin: 5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    left: 200px;
+}
+
+.cart-contaner {
+    background: rgb(173, 172, 172);
+    width: 50%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 30px;
+}
+
+.cart-container-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100%;
+}
+
+.cart-container-top span {
+    color: $pri-color-one;
+    padding: 2px 20px;
+    background: $pri-color-two;
+    border-radius: 10px;
+    border-bottom: 1px solid $pri-color-one ;
+    border-right: 1px solid $pri-color-one ;
+}
+
+.cart-card {
+    background: $pri-color-one;
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    border: 2px solid $pri-color-two;
+}
+
+.cart-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-card-top h5{
+    color: $pri-color-two;
+}
+.cart-card-top img {
+    padding-right: 50%;
+    padding-left: 40%;
+}
+
+.cart-card-top h4 {
+    padding-right: 100%;
+    width: 100%;
+}
+
+.cart-card-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-card-button input[type="number"] {
+    border: 1px solid red;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10%;
+    width: 40px;
+}

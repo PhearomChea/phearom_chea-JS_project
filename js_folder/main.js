@@ -7,6 +7,9 @@ const createButton = document.querySelector("#create01")
 //
 let formInput = document.querySelector(".form")
 let sellerProduct = document.querySelector("#edit-view")
+let cart = document.querySelector(".cart")
+let cartDiv = document.querySelector(".cart-div")
+let cartContainer = document.querySelector(".cart-contaner")
 //
 let productToEdit = null;
 
@@ -21,13 +24,21 @@ function hide(element) {
 //show form --------------------------------------------------------
 function showForm(){
     formInput.style.display = "block";
-    sellerProduct.style.display = "none"
+    sellerProduct.style.display = "none";
+    cart.style.display = "none";
 }
 //show seller --------------------------------------------------------
 function showSellerProduct(){
     sellerProduct.style.display = "block";
     formInput.style.display = "none";
     dom_brand.style.display = "none";
+    cart.style.display = "none";
+}
+function showCart(){
+    cartDiv.style.display = "block";
+    formInput.style.display = "none";
+    dom_brand.style.display = "none";
+    sellerProduct.style.display = "none";
 }
 //  LOCAL STORAGE ---------------------------------------------------------
 function saveProduct() {
@@ -39,9 +50,19 @@ function loadProduct() {
         allProducts = productStorage;
     }
 }
+//cart save --------------------------------------------------------
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cartArray));
+}
+function loadCart() {
+    let productCart = JSON.parse(localStorage.getItem("cart"));
+    if (productCart !== null){
+        cartArray = productCart
+    }
+}
 //  EDIT ---------------------------------------------------------
+
 function renderProducts() {
-    console.log('hello')
 
     let dom_list = document.querySelector('#product-view');
     dom_list.remove();
@@ -127,6 +148,7 @@ function renderProductsCard() {
         
         let card = document.createElement('div');
         card.className = 'card';
+        card.dataset.index = index;
         container.appendChild(card);
         
         let card_img = document.createElement('img');
@@ -168,6 +190,8 @@ function renderProductsCard() {
 
         let link1 = document.createElement('a');
         link1.style.cursor = 'pointer'
+        // link1.dataset.index = index;
+        link1.addEventListener('click',addCart)
         link1.textContent = 'ADD TO CART'
         card_button.appendChild(link1);
     }
@@ -201,10 +225,10 @@ function onCreate() {
          && newProduct.date !== ""
           && newProduct.img !== ""
            && newProduct.desriptioin){
-        allProducts.unshift(newProduct);}
-    //   }else{
-    //     alert("ho")
-    //   }
+        allProducts.unshift(newProduct);
+      }else{
+        alert("Need more information")
+      }
     }
   
     // 2- Save question
@@ -214,13 +238,64 @@ function onCreate() {
     renderProducts();
     renderProductsCard();
 }
+let cartArray = [];
+function addCart(event){
+    productAddCart = event.target.parentElement.parentElement.dataset.index;
+
+    let addCart = allProducts[productAddCart]
+    cartArray.unshift(addCart);
+    saveCart();
+    rederCart();
+}
+function rederCart(){
+    // console.log("rom")
+
+    let cart = document.querySelector(".cart");
+    let container = document.querySelector(".cart-contaner");
+    container.remove();
+    container = document.createElement("div");
+    container.className = "cart-contaner";
+    cart.appendChild(container);
+
+    for (let index = 0; index < cartArray.length; index++) {
+        let cartProdeuct = cartArray[index]
+
+        let cartCard = document.createElement("div")
+        cartCard.className = "cart-card";
+        container.appendChild(cartCard)
+
+        let cartTop = document.createElement("div");
+        cartTop.className = "cart-card-top";
+        cartCard.appendChild(cartTop);
+
+        let cartImg = document.createElement("img");
+        cartImg.src = cartProdeuct.img
+        cartImg.style.width = "60px"
+        cartTop.appendChild(cartImg)
+
+        let cartName = document.createElement("h4");
+        cartName.textContent = cartProdeuct.name;
+        cartTop.appendChild(cartName);
+
+        let cartPrice = document.createElement("h5");
+        cartPrice.textContent = cartProdeuct.price;
+        cartTop.appendChild(cartPrice);
+
+        let cartbotton = document.createElement("div");
+        cartbotton.className = "cart-card-button";
+        cartCard.appendChild(cartbotton)
+
+        let number = document.createElement("input")
+        number.type = "number"
+        number.value = "1"
+        cartbotton.appendChild(number)
+    }
+}
 function editProduct(event) {
     //  Get the question index
     productToEdit = event.target.parentElement.parentElement.parentElement.dataset.index;
-    console.log(productToEdit);
     // update the dialog with question informatin
     let product = allProducts[productToEdit];
-    console.log(allProducts[productToEdit]);
     document.querySelector('#title').value = product.name;
     document.querySelector('#cost').value = product.cost;
     document.querySelector('#brand').value = product.brand;
@@ -266,5 +341,6 @@ function onCancel(event){
     showSellerProduct()
 }
 loadProduct()
+loadCart()
 renderProducts()
 renderProductsCard();
